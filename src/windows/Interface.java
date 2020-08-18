@@ -28,7 +28,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public final class Interface extends javax.swing.JFrame {
 
     boolean maximized;
-    private int xW, yW;
+    /*private int xW, yW;
     int noImg;
     int conClick;
     
@@ -45,11 +45,11 @@ public final class Interface extends javax.swing.JFrame {
     public int hist[];
     public int histColor[][];
     public int coor_a[];
-    public int coor_r[];
+    public int coor_r[];*/
 
     public Interface() {
         initComponents();
-        opChooser = new JFileChooser();
+        /*opChooser = new JFileChooser();
         initChooser(opChooser, true);
         svChooser = new JFileChooser();
         initChooser(svChooser, false);
@@ -64,7 +64,7 @@ public final class Interface extends javax.swing.JFrame {
         graphs1 = new Graphs1(this);
         coor_a = new int[8];
         coor_r = new int[8];
-        conClick =0;
+        conClick =0;*/
           
         addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -74,13 +74,13 @@ public final class Interface extends javax.swing.JFrame {
         });
     }
     
-    @Override
+    //@Override
     public Image getIconImage() {
         Image image = new ImageIcon("src\\images\\icon.png").getImage();
         return image;
     }
     
-    private void initChooser(JFileChooser chooser, boolean flag){
+    /*private void initChooser(JFileChooser chooser, boolean flag){
         String userhome = System.getProperty("user.home");
         chooser.setCurrentDirectory(new File(userhome+"\\Pictures"));
         chooser.setAcceptAllFileFilterUsed(false);
@@ -182,7 +182,7 @@ public final class Interface extends javax.swing.JFrame {
             case 2: filter = LibImg.umbral(filterArr[selected],stns.umbral.getValue());
             break;
             default: return;
-        }*/
+        } *
         bffImg[noImg] = MathImg.convierteDeArregloAImagen(filterArr2[noImg]);// cambie por selected
         setImage(noImg);
         selected = noImg;
