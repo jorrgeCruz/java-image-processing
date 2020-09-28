@@ -92,7 +92,6 @@ public class MathImg {
                     pixel = (int)arrsal[B][i][j] | (int)arrsal[G][i][j]<<8 | (int)arrsal[R][i][j]<<16;
                     sal.setRGB(j,i, pixel);
                 }
-        
         return sal;
     }
     
