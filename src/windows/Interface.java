@@ -25,10 +25,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author Jesús
  */
-public final class Interface extends javax.swing.JFrame {
+public final class Interface extends javax.swing.JPanel {
 
-    boolean maximized;
-    /*private int xW, yW;
+    //boolean maximized;
+    //private int xW, yW;
     int noImg;
     int conClick;
     
@@ -45,11 +45,11 @@ public final class Interface extends javax.swing.JFrame {
     public int hist[];
     public int histColor[][];
     public int coor_a[];
-    public int coor_r[];*/
+    public int coor_r[];
 
     public Interface() {
         initComponents();
-        /*opChooser = new JFileChooser();
+        opChooser = new JFileChooser();
         initChooser(opChooser, true);
         svChooser = new JFileChooser();
         initChooser(svChooser, false);
@@ -64,14 +64,14 @@ public final class Interface extends javax.swing.JFrame {
         graphs1 = new Graphs1(this);
         coor_a = new int[8];
         coor_r = new int[8];
-        conClick =0;*/
+        conClick =0;
           
-        addWindowListener(new java.awt.event.WindowAdapter() {
+        /*addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowDeiconified(java.awt.event.WindowEvent e) {
                 if (maximized) setExtendedState(Interface.MAXIMIZED_BOTH);
             }
-        });
+        });*/
     }
     
     //@Override
@@ -80,7 +80,7 @@ public final class Interface extends javax.swing.JFrame {
         return image;
     }
     
-    /*private void initChooser(JFileChooser chooser, boolean flag){
+    private void initChooser(JFileChooser chooser, boolean flag){
         String userhome = System.getProperty("user.home");
         chooser.setCurrentDirectory(new File(userhome+"\\Pictures"));
         chooser.setAcceptAllFileFilterUsed(false);
@@ -182,7 +182,7 @@ public final class Interface extends javax.swing.JFrame {
             case 2: filter = LibImg.umbral(filterArr[selected],stns.umbral.getValue());
             break;
             default: return;
-        } *
+        } */
         bffImg[noImg] = MathImg.convierteDeArregloAImagen(filterArr2[noImg]);// cambie por selected
         setImage(noImg);
         selected = noImg;
@@ -219,10 +219,7 @@ public final class Interface extends javax.swing.JFrame {
         miniature6 = new javax.swing.JPanel();
         viewPanel = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setIconImage(getIconImage());
         setName("interface"); // NOI18N
-        setUndecorated(true);
 
         windowPanel.setBackground(new java.awt.Color(0, 0, 0));
         windowPanel.setForeground(new java.awt.Color(204, 204, 204));
@@ -230,40 +227,15 @@ public final class Interface extends javax.swing.JFrame {
         titleBar.setBackground(new java.awt.Color(10, 10, 10));
         titleBar.setForeground(new java.awt.Color(204, 204, 204));
         titleBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        titleBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                titleBarMouseDragged(evt);
-            }
-        });
-        titleBar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                titleBarMousePressed(evt);
-            }
-        });
 
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit.png"))); // NOI18N
         exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exitMouseClicked(evt);
-            }
-        });
 
         fullscreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fullscreen.png"))); // NOI18N
         fullscreen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fullscreen.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fullscreenMouseClicked(evt);
-            }
-        });
 
         minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/minimize.png"))); // NOI18N
         minimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                minimizeMouseClicked(evt);
-            }
-        });
 
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/picture.png"))); // NOI18N
         icon.setFocusable(false);
@@ -283,7 +255,7 @@ public final class Interface extends javax.swing.JFrame {
                 .addComponent(icon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 456, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 455, Short.MAX_VALUE)
                 .addComponent(minimize)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fullscreen)
@@ -567,11 +539,6 @@ public final class Interface extends javax.swing.JFrame {
 
         viewPanel.setBackground(new java.awt.Color(0, 0, 0));
         viewPanel.setForeground(new java.awt.Color(204, 204, 204));
-        viewPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                viewPanelMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout viewPanelLayout = new javax.swing.GroupLayout(viewPanel);
         viewPanel.setLayout(viewPanelLayout);
@@ -614,8 +581,8 @@ public final class Interface extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(windowPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -624,42 +591,8 @@ public final class Interface extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(windowPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void titleBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMousePressed
-        xW = evt.getX();
-        yW = evt.getY();
-    }//GEN-LAST:event_titleBarMousePressed
-
-    private void titleBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMouseDragged
-        if(getExtendedState() != this.MAXIMIZED_BOTH){
-            Point move = MouseInfo.getPointerInfo().getLocation();
-            setLocation(move.x - xW, move.y - yW);
-        }
-    }//GEN-LAST:event_titleBarMouseDragged
-
-    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
-        setExtendedState(this.ICONIFIED);
-    }//GEN-LAST:event_minimizeMouseClicked
-
-    private void fullscreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullscreenMouseClicked
-        if(getExtendedState() == this.MAXIMIZED_BOTH){
-            setExtendedState(this.NORMAL);
-            maximized = false;
-        }else{
-            setExtendedState(this.MAXIMIZED_BOTH);
-            maximized = true;
-        }
-        updateMiniatures();
-    }//GEN-LAST:event_fullscreenMouseClicked
-
-    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_exitMouseClicked
-
+/***/
     private void openMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMouseClicked
         if(opChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
             String filePath = opChooser.getSelectedFile().getAbsolutePath();
@@ -785,21 +718,6 @@ public final class Interface extends javax.swing.JFrame {
         else
             onComponents();
     }//GEN-LAST:event_miniature6MouseClicked
-
-    private void viewPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPanelMouseClicked
-        // TODO add your handling code here:
-        if(conClick>=8)
-        {
-            coor_r[conClick%8]=evt.getX();
-            coor_r[conClick%8+1]=evt.getY();
-        }else
-        {
-            coor_r[conClick]=evt.getX();
-            coor_r[conClick+1]=evt.getY();
-        }
-       
-        conClick+=2;
-    }//GEN-LAST:event_viewPanelMouseClicked
 
     private void menuBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMouseClicked
         // TODO add your handling code here:
