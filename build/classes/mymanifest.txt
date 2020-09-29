@@ -1,0 +1,3 @@
+Permissions: sandbox;
+Codebase: jorrge.cruz.github.io
+Application-name: ImagicProcessing
